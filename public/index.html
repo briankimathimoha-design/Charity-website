@@ -1,47 +1,35 @@
-<style>
-    body {
-        font-family: Arial, sans-serif;
-        background-color: #f9f9f9;
-        margin: 0;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-    }
-    .charity-card {
-        background: #ffffff;
-        border-radius: 12px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-        margin: 20px 0;
-        padding: 15px;
-        max-width: 400px;
-        text-align: center;
-    }
-    .charity-card img {
-        width: 100%;
-        border-radius: 8px;
-        height: auto;
-    }
-    .caption {
-        font-size: 14px;
-        color: #555;
-        line-height: 1.5;
-        margin: 15px 0;
-    }
-    .donate-btn {
-        background-color: #28a745;
-        color: white;
-        border: none;
-        padding: 12px 24px;
-        font-size: 16px;
-        font-weight: bold;
-        border-radius: 6px;
-        cursor: pointer;
-        width: 100%;
-        transition: background 0.2s;
-    }
-    .donate-btn:hover {
-        background-color: #218838;
-    }
-</style>
+<script>
+    // Grab all contribution buttons on the page
+    document.querySelectorAll('.donate-btn').forEach(button => {
+        button.addEventListener('click', async (e) => {
+            // Find the description of the specific card clicked
+            const card = e.target.closest('.charity-card');
+            const itemTitle = card.querySelector('img').getAttribute('alt');
+            
+            button.innerText = "Processing...";
+            button.disabled = true;
+
+            try {
+                // Send the click event to our Node.js server API
+                const response = await fetch('/api/contribute', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ item: itemTitle })
+                });
+
+                const data = await response.json();
+                
+                if (data.success) {
+                    alert(data.message); // This will show your server response message
+                }
+            } catch (error) {
+                console.error("Error communicating with backend:", error);
+                alert("Connection error. Please try again.");
+            } finally {
+                button.innerText = "Contribute Now";
+                button.disabled = false;
+            }
+        });
+    });
+</script>
 
