@@ -1,0 +1,5 @@
+node_modules/
+ngrok
+donations.db
+*.json
+*.tgz

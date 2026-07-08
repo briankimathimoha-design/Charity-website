@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brian Kimathi Foundation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f4f6f9; color: #333; line-height: 1.6; }
+        header { background: #1b5e20; color: white; padding: 4rem 1rem; text-align: center; }
+        header h1 { margin: 0; font-size: 2.5rem; }
+        header p { margin: 10px 0 0; font-size: 1.2rem; font-style: italic; opacity: 0.9; }
+        .container { padding: 2rem; max-width: 600px; margin: auto; }
+        .message-box { background: #fff; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); text-align: center; margin-bottom: 2rem; border-left: 5px solid #1b5e20; }
+        .payment-box { background: #e8f5e9; padding: 2rem; border-radius: 8px; text-align: center; border: 2px dashed #2e7d32; margin: 2rem 0; }
+        .phone-number { font-size: 1.8rem; color: #1b5e20; font-weight: bold; margin: 10px 0; }
+        
+        /* Form Styling */
+        .form-box { background: white; padding: 2rem; border-radius: 8px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); margin-top: 2rem; }
+        .form-box h3 { color: #1b5e20; margin-top: 0; text-align: center; }
+        .form-group { margin-bottom: 1.2rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; font-weight: bold; }
+        .form-group input { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 4px; box-sizing: border-box; font-size: 1rem; }
+        .submit-btn { background: #2e7d32; color: white; width: 100%; padding: 12px; border: none; border-radius: 4px; font-size: 1.1rem; font-weight: bold; cursor: pointer; }
+        .submit-btn:hover { background: #1b5e20; }
+        
+        .quote { font-size: 1.3rem; font-style: italic; color: #555; text-align: center; margin: 2rem 0; }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Brian Kimathi Foundation</h1>
+        <p>"Changing the world to a better place"</p>
+    </header>
+
+    <div class="container">
+        
+        <div class="message-box">
+            <h2>Your Coin Matters</h2>
+            <p>Your coin matters, as little as it is. Imagine a hungry kid out there—your small act of kindness can completely change their day and give them a meal.</p>
+        </div>
+
+        <div class="payment-box">
+            <h3>Channel Your Contribution Directly To:</h3>
+            <div class="phone-number">+254759835825</div>
+            <p>Thank you for standing with us and supporting a child today.</p>
+        </div>
+
+        <!-- NEW FORM SECTION -->
+        <div class="form-box">
+            <h3>Report Your Donation</h3>
+            <p style="font-size: 0.9rem; text-align:center; color:#666;">Sent your contribution? Let us know so we can record your support!</p>
+            
+            <form action="/report-donation" method="POST">
+                <div class="form-group">
+                    <label for="name">Your Name:</label>
+                    <input type="text" id="name" name="name" placeholder="e.g. Anonymous or Your Name" required>
+                </div>
+                <div class="form-group">
+                    <label for="amount">Amount contributed (KES):</label>
+                    <input type="number" id="amount" name="amount" placeholder="e.g. 50" required>
+                </div>
+                <div class="form-group">
+                    <label for="reference">Transaction Reference / Code:</label>
+                    <input type="text" id="reference" name="reference" placeholder="e.g. SGR7XYZ89" required>
+                </div>
+                <button type="submit" class="submit-btn">Submit Report</button>
+            </form>
+        </div>
+
+        <div class="quote">
+            "The hand that gives is the hand that is blessed."
+        </div>
+
+    </div>
+
+</body>
+</html>
+
